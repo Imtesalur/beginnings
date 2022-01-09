@@ -1,9 +1,14 @@
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Scanner;
+
 public class Hospital
 {
 	public static void main(String[] args) {
 		String patientList[] = {"shanur", "Imtesaal"};
 		String searchValue = "munna";
-		Solution2(patientList, searchValue);
+		// Solution1(patientList, searchValue);
+		advancedRegistry(patientList);
 	}
 	
 	public static void Solution1(String patientList[], String searchValue) {
@@ -40,5 +45,23 @@ public class Hospital
 	    }else {
 	        System.out.println("New user");
 	    }
+	}
+
+
+
+	public static void advancedRegistry(String patientList[]) {
+		Scanner x = new Scanner(System.in);
+		HashSet<String> registry = new HashSet<>(Arrays.asList(patientList));
+		while(true) {
+			System.out.println("Enter name of patient");
+			String patient = x.next();
+
+			if(registry.contains(patient)) {
+				System.out.println("old patient");
+			} else {
+				registry.add(patient);
+				System.out.println("New patient");
+			}
+		}
 	}
 }
